@@ -6,14 +6,7 @@
 #define mult(a,b,m) (((a%m)*(b%m))%m)
 #define msub(a,b,m) (((a%m)-(b%m)+m)%m)
 
-ll mpow(ll a, ll b, ll m) {
-	if (b == 0) return 1;
-	ll p = mpow(a, b/2, m) % m;
-	p = mult(p, p, m);
-	return (b % 2 == 0) ? p : mult(a, p, m);
-}
-
-ll mexp(ll b, ll e, ll m) {
+ll mpow(ll b, ll e, ll m) {
 	ll x = 1;
 	while (e > 0) {
 		if (e % 2 == 1) x = (x * b) % m;
