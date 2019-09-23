@@ -13,6 +13,16 @@ ll mpow(ll a, ll b, ll m) {
 	return (b % 2 == 0) ? p : mult(a, p, m);
 }
 
+ll mexp(ll b, ll e, ll m) {
+	ll x = 1;
+	while (e > 0) {
+		if (e % 2 == 1) x = (x * b) % m;
+		b = (b * b) % m;
+		e /= 2;
+	}
+	return x % m;
+}
+
 // if m is not guaranteed to be prime
 ll minv(ll b, ll m) {
 	if (m == 1) return 1;
