@@ -1,4 +1,4 @@
-#include <algorith> // __gcd
+#include <algorithm> // __gcd
 #define ll long long
 
 #define MOD 1000000007
@@ -14,6 +14,15 @@ ll mpow(ll b, ll e, ll m) {
 		e /= 2;
 	}
 	return x % m;
+}
+
+ull mfac(ull n, ull m) {
+	ull f = 1;
+    for (int i = n; i > 1; i--) {
+		f = f * i;
+		f %= m;
+	}
+	return f;
 }
 
 // if m is not guaranteed to be prime
