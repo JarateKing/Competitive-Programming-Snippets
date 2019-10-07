@@ -1,8 +1,8 @@
 #include <vector>
-#include <algorithm>
+#include <algorithm> // __gcd
 #define ll long long
 
-// requires isPrime and modular mult
+// requires isPrime
 
 // do not call directly
 ll pollard_rho(ll n, ll s) {
