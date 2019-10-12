@@ -1,4 +1,5 @@
 #include <string>
+#include <cmath> // max
 #define ull unsigned long long
 
 // O(m*n) - "banana", "ban" >> 3 (ban, ba..n, b..an)
@@ -32,4 +33,33 @@ int subsequences(string body, string subsequence) {
 	delete[] arr;
 	
 	return value;
+}
+
+string lcs(string a, string b) {
+	int m = a.length();
+	int n = b.length();
+	
+	// build matrix / L[m][n] contains length of lcs
+	int L[m+1][n+1];
+	for (int i = 0; i <= m; i++) {
+		for (int j = 0; j <= n; j++) {
+			if (i == 0 || j == 0) L[i][j] = 0;
+			else if (a[i-1] == b[j-1]) L[i][j] = L[i-1][j-1]+1;
+			else L[i][j] = max(L[i-1][j], L[i][j-1]);
+		}
+	}
+	
+	// obtain string
+	string out = "";
+	int i = m - 1, j = n - 1;
+	while (i >= 0 && j >= 0) {
+		if (a[i] == b[j]) {
+			out = a[i--] + out;
+			j--;
+		}
+		else if (L[i][j+1] > L[i+1][j]) i--;
+		else j--;
+	}
+	
+	return out;
 }
