@@ -4,7 +4,7 @@ struct Fenwick {
 	int n;
 	ll* tree;
 	
-	update(int i, int val) {
+	void update(int i, int val) {
 		++i;
 		while (i <= n) {
 			tree[i] += val;
