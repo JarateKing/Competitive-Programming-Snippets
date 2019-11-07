@@ -26,7 +26,7 @@ bool isPrime(ull n) {
 // call genSieve once, and querySieve the rest
 bitset<100000001> sieve;
 void genSieve(int n) {
-	sieve2[0] = sieve[1] = 1;
+	sieve[0] = sieve[1] = 1;
 	for (ull i = 3; i * i < n; i += 2)
 		if (!sieve[i])
 			for (ull j = i * 3; j <= n; j += i * 2)
