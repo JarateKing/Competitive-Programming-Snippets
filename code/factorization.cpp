@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm> // __gcd
+#include <algorithm>
 #define ll long long
 
 // requires isPrime
